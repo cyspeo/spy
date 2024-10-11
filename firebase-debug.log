@@ -1,0 +1,57 @@
+[debug] [2024-10-11T09:49:04.919Z] ----------------------------------------------------------------------
+[debug] [2024-10-11T09:49:04.923Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\guillaume\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2024-10-11T09:49:04.923Z] CLI Version:   13.22.0
+[debug] [2024-10-11T09:49:04.923Z] Platform:      win32
+[debug] [2024-10-11T09:49:04.924Z] Node Version:  v20.18.0
+[debug] [2024-10-11T09:49:04.924Z] Time:          Fri Oct 11 2024 11:49:04 GMT+0200 (heure d’été d’Europe centrale)
+[debug] [2024-10-11T09:49:04.924Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-10-11T09:49:04.929Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2024-10-11T09:49:04.992Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-10-11T09:49:04.993Z] > authorizing via signed-in user (glandriu.free@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\guillaume\source\spy
+
+[debug] [2024-10-11T09:49:05.343Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2024-10-11T09:49:05.343Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project. 
+[debug] [2024-10-11T09:53:57.721Z] Checked if tokens are valid: false, expires at: 1552511550711
+[debug] [2024-10-11T09:53:57.722Z] Checked if tokens are valid: false, expires at: 1552511550711
+[debug] [2024-10-11T09:53:57.722Z] > refreshing access token with scopes: []
+[debug] [2024-10-11T09:53:57.723Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-10-11T09:53:57.724Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-10-11T09:53:57.833Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
+[debug] [2024-10-11T09:53:57.833Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-10-11T09:53:57.834Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects [none]
+[debug] [2024-10-11T09:53:57.834Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"projectId":"spy-etude","name":"spy-etude"}
+[debug] [2024-10-11T09:53:58.469Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects 401
+[debug] [2024-10-11T09:53:58.469Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"error":{"code":401,"message":"Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.","status":"UNAUTHENTICATED","details":[{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"ACCESS_TOKEN_TYPE_UNSUPPORTED","metadata":{"method":"google.cloudresourcemanager.v1.Projects.CreateProject","service":"cloudresourcemanager.googleapis.com"}}]}}
+[debug] [2024-10-11T09:53:58.470Z] Got a 401 Unauthenticated error for a call that required authentication. Refreshing tokens.
+[debug] [2024-10-11T09:53:58.470Z] Checked if tokens are valid: false, expires at: 1552511550711
+[debug] [2024-10-11T09:53:58.470Z] Checked if tokens are valid: false, expires at: 1552511550711
+[debug] [2024-10-11T09:53:58.470Z] > refreshing access token with scopes: []
+[debug] [2024-10-11T09:53:58.470Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-10-11T09:53:58.470Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-10-11T09:53:58.509Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
+[debug] [2024-10-11T09:53:58.509Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-10-11T09:53:58.513Z] FirebaseError: HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at responseToError (C:\Users\guillaume\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:49:12)
+    at RetryOperation._fn (C:\Users\guillaume\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:312:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: Failed to create project. See firebase-debug.log for more info.
