@@ -1,0 +1,36 @@
+.container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .image-container {
+    margin-bottom: 20px;
+  }
+  
+  .image {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .description {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .checkbox-container {
+    margin-bottom: 20px;
+  }
+  
+ 
+  button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  

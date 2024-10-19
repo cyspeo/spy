@@ -1,0 +1,23 @@
+<div class="container">
+    <!-- Image avec texte en dessous -->
+    <div class="image-container">
+      <img src="https://via.placeholder.com/150" alt="Image" class="image" />
+      <p class="description">Voici une description sous l'image.</p>
+    </div>
+  
+    <!-- Liste de checkbox -->
+    <div class="checkbox-container">
+      <h3>Veuillez sélectionner vos options :</h3>
+      <div *ngFor="let option of options">
+        <input type="checkbox" [id]="option" [(ngModel)]="selectedOptions[option]" />
+        <label [for]="option">{{ option }}</label>
+      </div>
+    </div>
+  
+  <!-- Minuteur circulaire (Composant Timer) -->
+  <app-timer [totalTime]="60"></app-timer>
+  
+    <!-- Bouton Suivant -->
+    <button (click)="goNext()">Suivant</button>
+  </div>
+  
