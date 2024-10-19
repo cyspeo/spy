@@ -1,0 +1,19 @@
+<p-dialog header="Login" [(visible)]="display" [modal]="true" [closable]="true" [dismissableMask]="true">
+    <div class="p-fluid">
+      <div class="p-field">
+        <label for="email">Email</label>
+        <input id="email" type="email" pInputText [(ngModel)]="email" placeholder="Entrez votre email" />
+      </div>
+  
+      <div class="p-field">
+        <label for="password">Mot de passe</label>
+        <input id="password" type="password" pInputText [(ngModel)]="password" placeholder="Entrez votre mot de passe" />
+      </div>
+    </div>
+  
+    <p-footer>
+      <!-- <button pButton type="button" label="Login" icon="pi pi-check" (click)="login()"></button> -->
+      <button pButton type="button" label="Annuler" icon="pi pi-times" (click)="display=false"></button>
+    </p-footer>
+  </p-dialog>
+  
