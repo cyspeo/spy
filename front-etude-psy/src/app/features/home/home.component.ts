@@ -6,6 +6,7 @@ import { FloatLabelModule } from 'primeng/floatlabel';
 import { AuthDialogComponent } from '../auth-dialog/auth-dialog.component';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { FirestoreService } from 'src/app/services/firestore.service';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,7 @@ import { Router } from '@angular/router';
 
 export class HomeComponent   {
   email: string = '';
-  constructor(private router: Router) {
+  constructor(private router: Router, private questionServiceDas: FirestoreService) {
 
   }
 
@@ -25,8 +26,10 @@ export class HomeComponent   {
   // Get all questions
   
   onDebuter() {
-
-    this.router.navigate(['/questions']); // Naviguer vers la route /questions
+    this.questionServiceDas.questions$.subscribe(qs => {
+      this.questionServiceDas.questions = qs;
+      this.router.navigate(['/questions']); // Naviguer vers la route /questions
+    });   
   }
 }
 

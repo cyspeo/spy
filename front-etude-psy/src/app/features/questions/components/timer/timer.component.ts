@@ -16,6 +16,10 @@ export class TimerComponent implements OnInit {
     this.startTimer();
   }
 
+  resetTimeLeft(time:number) {
+    this.timeLeft = time;
+  }
+
   startTimer() {
     const updateFrequency = 1000; // Mise à jour toutes les secondes (1000 ms)
     this.interval = setInterval(() => {

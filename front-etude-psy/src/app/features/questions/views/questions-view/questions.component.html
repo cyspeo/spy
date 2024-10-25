@@ -4,6 +4,8 @@
       <img src="https://via.placeholder.com/150" alt="Image" class="image" />
       <p class="description">Voici une description sous l'image.</p>
     </div>
+
+    <p>{{questionServiceDas.currentQuestion.texte}}</p>
   
     <!-- Liste de checkbox -->
     <div class="checkbox-container">
@@ -15,7 +17,7 @@
     </div>
   
   <!-- Minuteur circulaire (Composant Timer) -->
-  <app-timer [totalTime]="60"></app-timer>
+  <app-timer #tmr [totalTime]="timeLeft"></app-timer>
   
     <!-- Bouton Suivant -->
     <button (click)="goNext()">Suivant</button>

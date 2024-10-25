@@ -1,37 +1,29 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { collection } from 'firebase/firestore';
 import { Observable } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
-import { Question } from './../features/questions/model/question';
+import { Question, Reponse } from './../features/questions/model/question';
+import { collectionData, Firestore } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirestoreService {
 
-  constructor(private firestore: AngularFirestore) {}
+  public questions :Question[];
+  currentQuestion = <Question>{};
+  private firestore = inject(Firestore);
+  public questions$:Observable<Question[]> ;
 
-  // Méthode pour récupérer un document "questions" et ses sous-documents "reponses"
-  getQuestionWithResponses(questionId: string): Observable<any> {
-    // Récupérer le document "questions" avec l'ID fourni (ici Q1)
-    return this.firestore.collection('questions').doc(questionId).snapshotChanges().pipe(
-      switchMap(questionDoc => {
-        if (!questionDoc.payload.exists) {
-          throw new Error('Question not found');
-        }
+  constructor() {
+    this.questions = new Array<Question>();
+    const userProfileCollection = collection(this.firestore, 'questions');
+    this.questions$ = collectionData(userProfileCollection) as Observable<Question[]>
+  }
 
-        // const questionData = Object.assign(questionDoc.payload.data());
-
-        // Maintenant, récupérer les sous-documents de la collection "reponses" pour cette question
-        return this.firestore.collection(`questions/${questionId}/reponses`).snapshotChanges().pipe(
-          map(responseDocs => {
-            const reponses = responseDocs.map(doc => {
-             //  return { id: doc.payload.doc.id, ...doc.payload.doc.data() };
-            });
-            // return { ...questionData, reponses }; // Retourner la question avec ses réponses
-          })
-        );
-      })
-    );
+  getOptions(parentId: string) {
+    const reponsesCollection = collection(this.firestore, 'question/'+parentId+'/reponses');
+    return collectionData(reponsesCollection) as Observable<Reponse[]>
   }
 }
